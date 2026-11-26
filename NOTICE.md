@@ -32,3 +32,8 @@ JetBrains Mono, served by Google Fonts (SIL Open Font License).
 ### Video
 Embedded YouTube videos by Computerphile are the property of their owners
 and are linked, not copied.
+
+
+###References: 
+This md file is created by claude. 
+Anthropic. (2026). Claude Sonnet. https://claude.ai
