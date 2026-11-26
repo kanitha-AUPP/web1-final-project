@@ -1,6 +1,3 @@
-/* Shared styles for the practice lab.
-   Design: the "Hacker Plus" theme (green #b5e853 on near-black, monospace),
-   to match the WebPentest101 website. Plain CSS. */
 * { box-sizing: border-box; }
 body {
   margin: 0;

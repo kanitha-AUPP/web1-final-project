@@ -1,4 +1,3 @@
-// ---- Lab 1: SQL Injection ----
 // A pretend user table. The first user is the admin.
 var users = [
   { username: "admin", password: "S3cr3t-P@ss!" },
@@ -32,15 +31,12 @@ function doLogin() {
   var result;
 
   if (fixedMode) {
-    // FIXED: compare the values directly. No query is built from text,
-    // so quotes in the input are just normal characters.
     document.getElementById("query").textContent =
       "Using a parameterised query (input kept separate from the SQL).";
     result = users.filter(function (u) {
       return u.username === username && u.password === password;
     });
   } else {
-    // VULNERABLE: build the query by joining strings together.
     var query = "SELECT * FROM users WHERE username='" + username +
                 "' AND password='" + password + "'";
     document.getElementById("query").textContent = query;
@@ -57,14 +53,10 @@ function doLogin() {
   }
 }
 
-// ---------------------------------------------------------
-// Below this line is a tiny "pretend database engine".
-// You do NOT need to understand it to do the lab - it only
-// exists so the vulnerable query above can really run.
-// ---------------------------------------------------------
+//pretend database
 function runQuery(query) {
   var where = query.split(/where/i)[1] || "";
-  where = where.split("--")[0];          // ignore anything after a comment
+  where = where.split("--")[0];          
   var out = [];
   for (var i = 0; i < users.length; i++) {
     if (evalWhere(where, users[i])) { out.push(users[i]); }
